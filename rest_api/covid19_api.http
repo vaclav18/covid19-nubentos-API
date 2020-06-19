@@ -1,0 +1,38 @@
+
+# you can generate an access token using the Client Credential grant type with the following cURL command.
+# curl -k -d "grant_type=client_credentials" -H "Authorization: Basic {$authorizationKey}" https://apigw.nubentos.com:443/token
+
+POST {{baseUrl}}/token?grant_type=client_credentials
+Authorization: Basic {{authorizationKey}}
+X-Requested-With: XMLHttpRequest
+// required for a workarround
+
+###
+GET {{fullUrl}}/cases
+Accept: application/application/json
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{fullUrl}}/todayCases
+Accept: application/application/json
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{fullUrl}}/deaths
+Accept: application/application/json
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{fullUrl}}/recovered
+Accept: application/application/json
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{fullUrl}}/critical
+Accept: application/application/json
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{fullUrl}}/active
+Accept: application/application/json
+Authorization: Bearer {{accessToken}}
